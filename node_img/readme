@@ -1,0 +1,23 @@
+This is a sample node app prototype which I used for testing various things.
+
+It runs an express server which exposes an endpoint that -
+
+- accepts a list of urls which are meant to be images
+- downloads them
+- computes an image color for each image (see comment in imgColor.js for why this is mocked)
+
+In addition a number of extra things are done such as -
+
+- enhanced logging
+- making this performant under load by using external utils such as wget for async tasks
+- using async/await 
+- multiple caller handling by isolating each request in its own sandbox
+- files are downloaded and cleaned up in temp folder (wkdir) which can be cached for later use
+
+Instructions -
+
+Needs Node v8 or later
+install dependencies with 'npm i'
+start node server with 'npm start'
+open the test page - caller.html and press the button
+view logs in console and in /logs dir

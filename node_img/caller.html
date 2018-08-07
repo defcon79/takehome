@@ -1,0 +1,68 @@
+<html>
+		<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			const url = 'http://localhost:3001/';
+		
+			const getMaxUrl = url + 'maxUrls';
+
+			const getColorUrl = url + 'getImgColor';
+
+			$('#server').text(url);
+
+			$.get(getMaxUrl, data => {
+				console.log(data);
+				$('#maxurls').text(data.maxUrls);
+			});
+
+			const imgsWebp = [
+				'http://www.gstatic.com/webp/gallery/1.webp',
+				'https://www.gstatic.com/webp/gallery/2.sm.webp',
+				'https://www.gstatic.com/webp/gallery/5.sm.webp'
+			]
+
+			$("#btnGetImgColor").click(function(){
+				const data = {
+					urls: imgsWebp
+				}
+
+				const postData = JSON.stringify(data);
+
+				console.log('post ' + getImgFpUrl);
+				$.ajax({
+					type: 'POST',
+					url: getColorUrl,
+					contentType: 'application/json',
+					data: postData,
+					success: (data, status, xhr) => {
+						const log = `Ok:${JSON.stringify(data)}\nstatus:${status}}`;
+						console.log(log);
+						$('#getImgColorResponse').text(log);
+					},
+					error: (xhr, status, err) => {
+						const log = `Error: xhr:${JSON.stringify(xhr)}\nstatus:${status}\nerr:${err}`;
+						console.log(log);
+						$('#getImgColorResponse').text(log);
+					}
+				});
+			});
+
+
+		});
+		</script>
+		</head>
+		<body>
+			<h1>Node Tester</h1>
+			<p>
+			Remote Server: <a id='server'/>
+			<p>
+			Max Urls: <a id='maxurls'/>
+			<p>
+			<button id='btnGetImgColor'>GetImgColor</button>
+			<p>
+			GetImgColor Response
+			<div id='getImgColorResponse'></div>
+		</body>
+		</html>
+		
