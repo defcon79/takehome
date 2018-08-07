@@ -1,0 +1,28 @@
+Notes
+
+This is a basic search prototype for Giphy. A few special things -
+
+- there's an option to 'search as you type'
+- search activates only when you type a min no of chars 
+- both of these were prob overkill but its a nicer user experience and I wanted to do it!
+- all the config values are parametrized and easily seen in the code
+- The data loader and cache is fairly agnostic. All Giphy specific functions are factored out
+- it can be easily transformed to use any other set of data
+- cache stores transformed data only as thats much smaller
+- the cache is LRU
+- the UI shows cache stats as well
+- the layout is responsive
+- uses async/await for easier readability and other ES6 features as needed
+
+Things that can be improved/added
+
+- Redux
+- UI polish :)
+- cache persistence
+
+Instructions
+
+needs a recent Node (I used latest Node 10)
+npm install, then npm start
+CRA eject could also be used combined with a prod build
+

@@ -1,0 +1,21 @@
+{
+  "name": "pingy",
+  "version": "1.0.0",
+  "description": "Ping Demo app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://pingdemo1@bitbucket.org/pingdemo1/pingy.git"
+  },
+  "keywords": [],
+  "author": "Maneesh",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/pingdemo1/pingy#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
